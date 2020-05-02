@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Drawing APP</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/style_cnnDraw.css">
+    <script type="text/javascript" src="static/cnnDraw.js"></script>
+</head>
+
+
+<body>
+    <h1>Results</h1>
+    <div class="results">
+        {%if prediction%}
+        <h2 style="color:green;">Looks like a(n) {{ prediction }} ! </h2>
+        {%else%}
+        <h2 style="color:red">Nothing to predict ! </h2>
+        {%endif%}
+
+    </div>
+</body>
+
+</html>
