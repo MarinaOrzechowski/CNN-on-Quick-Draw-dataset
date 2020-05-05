@@ -1,24 +1,25 @@
 #canvas {
-    border: 5px;
+    border: 2px;
     border-style: solid;
-    border-color: green;
     margin-left: 15%;
     margin-right: 15%;
+    background-color: #27496d; 
+    border-color: #d45079;
 }
 
 header {
-
-    font-size: 3em;
-
+    color: #d45079;
+    font-size: 5em;
+    margin-bottom: 0.5em;
 }
 
 #predict {
-
+    background-color: #d45079;
     font-size: 2em;
     display: block;
     margin-left: auto;
     margin-right: auto;
-
+    
 }
 
 h1 {
@@ -31,7 +32,7 @@ h1 {
 }
 
 body {
-
+    background-color: #162447;
     display: block;
     margin-left: auto;
     margin-right: auto;

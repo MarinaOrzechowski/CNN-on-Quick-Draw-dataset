@@ -2,29 +2,47 @@
 <html>
 
 <head>
-    <title>Drawing App</title>
+    <title>Drawing Game</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="static/style_cnnDraw.css">
     <script type="text/javascript" src="static/cnnDraw.js"></script>
 
 </head>
 <header>
-    Drawing App
-
+    Drawing Game
+    <center style="font-size:20%">For a now I can only guess octopuses, sheeps, ice-cream, cars, or umbrellas</center>
 </header>
 
 <body>
-    <form id="myForm" action="{{ url_for('predict')}}" method="POST" enctype="multipart/form-data">
-        <canvas id="canvas" , name="draw" width="400" height="400">
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    drawCanvas();
-                });
-            </script>
-        </canvas>
-        <input type="hidden" id='url' name="url" value="">
-        <input type="submit" id='predict' value="Predict" onclick="return save();">
-    </form>
+
+    <div style="width: 100%;">
+        <div style="width: 50%; float: left;">
+            <form id="myForm" action="{{ url_for('predict')}}" method="POST" enctype="multipart/form-data">
+                <canvas id="canvas" , name="draw" width="400" height="400">
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            drawCanvas();
+                        });
+                    </script>
+                </canvas><br><br>
+                <input type="hidden" id='url' name="url" value="">
+                <input type="submit" id='predict' value="Predict" onclick="return save();">
+            </form>
+        </div>
+        <div style="margin-left: 20%;">
+            <div class="results"><br><br><br><br><br><br><br><br>
+                {%if prediction%}
+                <h2 style="color: #e9e1cc; float: left;">Is it a/an {{ prediction }}? </h2>
+                {%else%}
+                <h2 style="color: #e9e1cc; float: left;">Nothing to predict ! </h2>
+                {%endif%}
+
+            </div>
+        </div>
+    </div>
+
+
+
 
 </body>
 

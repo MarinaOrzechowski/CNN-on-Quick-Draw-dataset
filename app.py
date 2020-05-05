@@ -24,16 +24,19 @@ graph = tf.get_default_graph()
 # Otherwise, their weights will be unavailable in the threads after the session there has been set
 set_session(sess)
 
-num_of_categories = 50
+#num_of_categories = 6
 
-labels = ['airplane', 'alarm clock', 'angel', 'ant', 'bee', 'bicycle', 'birthday cake', 'bird', 'butterfly', 'camel', 'carrot', 'car', 'chair', 'cloud', 'crab', 'diamond', 'dolphin', 'eye', 'envelope', 'eyeglasses', 'fish', 'flower', 'guitar', 'headphones', 'hedgehog',
-          'house', 'ice cream', 'key', 'light bulb', 'lightning', 'mushroom', 'octopus', 'palm tree', 'panda', 'pineapple', 'scissors', 'sheep', 'shoe', 'smiley face', 'snail', 'snowflake', 'snowman', 'spider', 'star', 'sun', 'tooth', 'tree', 'umbrella', 'whale', 'wine glass']
+# Our dictionary
+labels = ['car', 'ice cream', 'octopus', 'sheep', 'umbrella']
+label_dict = dict(enumerate(labels))
+with open(f'Model3.pkl', 'rb') as f:
+    model = pickle.load(f)
 
 label_dict = dict(enumerate(labels))
 
-# Initializing the Default Graph (prevent errors)
+# Initializing the Default Graph (prevent errors)'''
 
-model = tf.keras.models.load_model('Model_50cat_89acc.h5')
+#model = tf.keras.models.load_model('Model_50cat_89acc.h5')
 graph = tf.get_default_graph()
 
 # Initialize the useless part of the base64 encoded image.
@@ -76,13 +79,15 @@ def predict():
             my_prediction = model.predict(vect)
             print(my_prediction)
             # Getting the index of the maximum prediction
+            #indecies = my_prediction.argsort()[0][-2:]
             index = np.argmax(my_prediction)
             print(label_dict)
-            print(index)
+            # print(indecies)
             # Associating the index and its value within the dictionnary
+            #final_pred = [label_dict[indecies[1]], label_dict[indecies[0]]]
             final_pred = label_dict[index]
 
-    return render_template('results.html', prediction=final_pred)
+    return render_template('User_input.html', prediction=final_pred)
 
 
 if __name__ == '__main__':
