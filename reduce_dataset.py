@@ -5,11 +5,13 @@
 import os
 import numpy as np
 
-files = os.listdir("C:/Users/mskac/machineLearning/movie_guess/data/shortData")
+files = os.listdir(
+    "C:/Users/mskac/machineLearning/CNN-on-Quick-Draw-dataset/data/full")
 
-reduced = 30000
+reduced = 15000
 for file in files:
     x = np.load(
-        "C:/Users/mskac/machineLearning/movie_guess/data/shortData/" + file)
+        "C:/Users/mskac/machineLearning/CNN-on-Quick-Draw-dataset/data/full/" + file)
     x = x[:reduced]
-    np.save("C:/Users/mskac/machineLearning/movie_guess/data/shortTestData/" + file, x)
+    np.save(
+        "C:/Users/mskac/machineLearning/CNN-on-Quick-Draw-dataset/data/short/" + file, x)

@@ -27,9 +27,10 @@ set_session(sess)
 #num_of_categories = 6
 
 # Our dictionary
-labels = ['car', 'ice cream', 'octopus', 'sheep', 'umbrella']
+labels = ['airplane', 'apple', 'car', 'fish', 'giraffe',
+          'ice cream', 'key', 'octopus', 'sheep', 'umbrella']
 label_dict = dict(enumerate(labels))
-with open(f'Model3.pkl', 'rb') as f:
+with open(f'Model_10cat.pkl', 'rb') as f:
     model = pickle.load(f)
 
 label_dict = dict(enumerate(labels))
