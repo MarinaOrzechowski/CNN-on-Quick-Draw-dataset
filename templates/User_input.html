@@ -10,7 +10,8 @@
 </head>
 <header>
     Drawing Game
-    <center style="font-size:20%">For a now I can only guess octopuses, sheeps, ice-cream, cars, or umbrellas</center>
+    <center style="font-size:20%">For a now I can only guess octopuses, sheeps, ice-cream, cars, umbrellas, giraffes,
+        keys, airplanes, eyeglasses, jail</center>
 </header>
 
 <body>
@@ -29,16 +30,19 @@
                 <input type="submit" id='predict' value="Predict" onclick="return save();">
             </form>
         </div>
-        <div style="margin-left: 20%;">
-            <div class="results"><br><br><br><br><br><br><br><br>
+        <div
+            style="width: 40%; float: left; padding-right: 10%; color: #FFC0CB; text-align: left; font-family: Times New Roman;letter-spacing: 0.1em;">
+            <div class="results"><br><br><br><br>
                 {%if prediction%}
-                <h2 style="color: #e9e1cc; float: left;">Is it a/an {{ prediction }}? </h2>
+                <h2>{{ prediction.upper() }}? <br><br></h2>
+                <h2>{{fact}}</h2>
                 {%else%}
-                <h2 style="color: #e9e1cc; float: left;">Nothing to predict ! </h2>
+                <h2>Nothing to predict ! </h2>
                 {%endif%}
 
             </div>
         </div>
+
     </div>
 
 
